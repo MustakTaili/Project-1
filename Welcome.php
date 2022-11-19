@@ -1,6 +1,6 @@
 <?php
 session_start();
-$user = $_POST['username'];
+$user = $_POST['Username'];
 $pass = $_POST['Password1'];
 echo $user;
 echo $pass;
@@ -9,7 +9,7 @@ $c = mysqli_connect("localhost","root","","Project");
 $q = "SELECT * FROM `login` WHERE Username= '$user' and Password ='$pass'";
 $res = mysqli_query($c,$q);
 $exists="No";
-if (isset($_POST['username']) && isset($_POST['Password1']) )
+if (isset($_POST['Username']) && isset($_POST['Password1']) )
 {
     while ($row = mysqli_fetch_array($res)) 
     {
@@ -17,9 +17,9 @@ if (isset($_POST['username']) && isset($_POST['Password1']) )
     }
     if($exists=="Yes")
     {
-        $_SESSION['Username'] = $_POST['username'];
+        $_SESSION['Username'] = $_POST['Username'];
         $_SESSION['Password'] = $_POST['Password1'];
-        echo "<script> location.href='main.php';</script>";
+        echo "<script> location.href='main.php'</script>";
     }
     else{
         echo "<script> location.href='Login.html';</script>";
